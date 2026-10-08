@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FarmaDesk.Entity
 {
-    internal class State
+    [Table("Estado")]
+    public class EstadoEntity
     {
         [Key]
-        public int ID_Estado {  get; set; }
-        [Required]
-        public string Estado { get; set; }
+        public int ID_Estado { get; set; }
 
-        //RELACIONES
-        public int 
+        [Required]
+        [StringLength(50)]
+        public string Estado { get; set; } = string.Empty;
+
+        [StringLength(150)]
+        public string? Descripcion { get; set; }
     }
 }
