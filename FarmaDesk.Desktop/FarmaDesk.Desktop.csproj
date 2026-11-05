@@ -18,6 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FarmaDesk.DataAccess\FarmaDesk.DataAccess.csproj" />
+    <ProjectReference Include="..\FarmaDesk.Entity\FarmaDesk.Entity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
