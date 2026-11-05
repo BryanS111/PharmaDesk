@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FarmaDesk.DataAccess;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 
-namespace FarmaDesk.DataAccess
+namespace KioscoSV.DataAccess;
+
+public class AppDBContextFactory : IDesignTimeDbContextFactory<AppDBContext>
 {
-    internal class AppDBContextFactory
+    public AppDBContext CreateDbContext(string[] args)
     {
+        var optionsBuilder = new DbContextOptionsBuilder<AppDBContext>();
+
+
+        optionsBuilder.UseSqlServer("Server=LC\\SQLEXPRESS;Database=Shopx;Trusted_Connection=True;TrustServerCertificate=True;");
+
+        return new AppDBContext(optionsBuilder.Options);
     }
 }
