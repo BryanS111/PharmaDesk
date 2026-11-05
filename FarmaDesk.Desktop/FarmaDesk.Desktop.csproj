@@ -8,8 +8,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-<<<<<<< Updated upstream
-=======
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.31">
       <PrivateAssets>all</PrivateAssets>
@@ -34,5 +32,4 @@
     </EmbeddedResource>
   </ItemGroup>
 
->>>>>>> Stashed changes
 </Project>
