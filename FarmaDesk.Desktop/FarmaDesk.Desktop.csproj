@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FarmaDesk.BusinessLogic\FarmaDesk.BusinessLogic.csproj" />
     <ProjectReference Include="..\FarmaDesk.DataAccess\FarmaDesk.DataAccess.csproj" />
     <ProjectReference Include="..\FarmaDesk.Entity\FarmaDesk.Entity.csproj" />
   </ItemGroup>

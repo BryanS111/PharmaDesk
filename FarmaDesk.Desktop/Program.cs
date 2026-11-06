@@ -1,3 +1,4 @@
+using FarmaDesk.BusinessLogic;
 using FarmaDesk.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -26,6 +27,13 @@ namespace FarmaDesk.Desktop
             services.AddSingleton<IConfiguration>(configuration);
             services.AddDbContext<AppDBContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("conn")));
+            services.AddScoped<EstadoRepository>();
+            services.AddScoped<CategoriaRepository>();
+            services.AddScoped<ProductRepository>();
+            services.AddScoped<PresentationRepository>();
+            services.AddScoped<SupplierRepository>();
+            services.AddScoped<CustomerRepository>();
+            services.AddScoped<RoleRepository>();
 
             using var serviceProvider = services.BuildServiceProvider();
             Application.Run(new login());

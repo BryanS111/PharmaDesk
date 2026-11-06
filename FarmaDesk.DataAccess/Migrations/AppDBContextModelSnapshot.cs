@@ -76,7 +76,12 @@ namespace FarmaDesk.DataAccess.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<int>("ID_Estado")
+                        .HasColumnType("int");
+
                     b.HasKey("ID_Categoria");
+
+                    b.HasIndex("ID_Estado");
 
                     b.ToTable("Categoria", (string)null);
                 });
@@ -138,6 +143,9 @@ namespace FarmaDesk.DataAccess.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
+                    b.Property<int>("ID_Estado")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -149,6 +157,8 @@ namespace FarmaDesk.DataAccess.Migrations
                         .HasColumnType("nvarchar(20)");
 
                     b.HasKey("ID_Cliente");
+
+                    b.HasIndex("ID_Estado");
 
                     b.ToTable("Cliente", (string)null);
                 });
@@ -262,6 +272,20 @@ namespace FarmaDesk.DataAccess.Migrations
                     b.HasKey("ID_Estado");
 
                     b.ToTable("Estado", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            ID_Estado = 1,
+                            Descripcion = "Registro disponible",
+                            Estado = "Activo"
+                        },
+                        new
+                        {
+                            ID_Estado = 2,
+                            Descripcion = "Registro deshabilitado",
+                            Estado = "Inactivo"
+                        });
                 });
 
             modelBuilder.Entity("FarmaDesk.Entity.InventarioEntity", b =>
@@ -427,12 +451,17 @@ namespace FarmaDesk.DataAccess.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
+                    b.Property<int>("ID_Estado")
+                        .HasColumnType("int");
+
                     b.Property<string>("Rol")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("ID_Rol");
+
+                    b.HasIndex("ID_Estado");
 
                     b.ToTable("Rol", (string)null);
                 });
@@ -581,6 +610,17 @@ namespace FarmaDesk.DataAccess.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("FarmaDesk.Entity.CategoriaEntity", b =>
+                {
+                    b.HasOne("FarmaDesk.Entity.EstadoEntity", "Estado")
+                        .WithMany()
+                        .HasForeignKey("ID_Estado")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Estado");
+                });
+
             modelBuilder.Entity("FarmaDesk.Entity.ComprasEntity", b =>
                 {
                     b.HasOne("FarmaDesk.Entity.Supplier", null)
@@ -594,6 +634,17 @@ namespace FarmaDesk.DataAccess.Migrations
                         .HasForeignKey("ID_Usuario")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("FarmaDesk.Entity.Customer", b =>
+                {
+                    b.HasOne("FarmaDesk.Entity.EstadoEntity", "Estado")
+                        .WithMany()
+                        .HasForeignKey("ID_Estado")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Estado");
                 });
 
             modelBuilder.Entity("FarmaDesk.Entity.Detalle_ComprasEntity", b =>
@@ -674,32 +725,51 @@ namespace FarmaDesk.DataAccess.Migrations
 
             modelBuilder.Entity("FarmaDesk.Entity.PresentacionesEntity", b =>
                 {
-                    b.HasOne("FarmaDesk.Entity.EstadoEntity", null)
+                    b.HasOne("FarmaDesk.Entity.EstadoEntity", "Estado")
                         .WithMany()
                         .HasForeignKey("ID_Estado")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("FarmaDesk.Entity.ProductoEntity", null)
+                    b.HasOne("FarmaDesk.Entity.ProductoEntity", "Producto")
                         .WithMany()
                         .HasForeignKey("ID_Producto")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Estado");
+
+                    b.Navigation("Producto");
                 });
 
             modelBuilder.Entity("FarmaDesk.Entity.ProductoEntity", b =>
                 {
-                    b.HasOne("FarmaDesk.Entity.CategoriaEntity", null)
+                    b.HasOne("FarmaDesk.Entity.CategoriaEntity", "Categoria")
                         .WithMany()
                         .HasForeignKey("ID_Categoria")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("FarmaDesk.Entity.EstadoEntity", null)
+                    b.HasOne("FarmaDesk.Entity.EstadoEntity", "Estado")
                         .WithMany()
                         .HasForeignKey("ID_Estado")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Categoria");
+
+                    b.Navigation("Estado");
+                });
+
+            modelBuilder.Entity("FarmaDesk.Entity.Role", b =>
+                {
+                    b.HasOne("FarmaDesk.Entity.EstadoEntity", "Estado")
+                        .WithMany()
+                        .HasForeignKey("ID_Estado")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Estado");
                 });
 
             modelBuilder.Entity("FarmaDesk.Entity.Supplier", b =>

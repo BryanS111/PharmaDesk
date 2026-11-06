@@ -15,5 +15,11 @@ namespace FarmaDesk.Entity
 
         [StringLength(200)]
         public string? Descripcion { get; set; }
+
+        [Required]
+        public int ID_Estado { get; set; }
+
+        [ForeignKey(nameof(ID_Estado))]
+        public virtual EstadoEntity Estado { get; set; } = null!;
     }
 }

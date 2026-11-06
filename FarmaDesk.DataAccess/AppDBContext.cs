@@ -45,6 +45,10 @@ public class AppDBContext : DbContext
         modelBuilder.Entity<ComprasEntity>().ToTable("Compras");
         modelBuilder.Entity<Detalle_ComprasEntity>().ToTable("Detalle_Compras");
 
+        modelBuilder.Entity<EstadoEntity>().HasData(
+            new EstadoEntity { ID_Estado = 1, Estado = "Activo", Descripcion = "Registro disponible" },
+            new EstadoEntity { ID_Estado = 2, Estado = "Inactivo", Descripcion = "Registro deshabilitado" });
+
         modelBuilder.Entity<ProductoEntity>().Property(p => p.Precio_Compra_Unidad).HasPrecision(18, 2);
         modelBuilder.Entity<ProductoEntity>().Property(p => p.Precio_Venta_Unidad).HasPrecision(18, 2);
         modelBuilder.Entity<PresentacionesEntity>().Property(p => p.Precio_Venta).HasPrecision(18, 2);
@@ -60,13 +64,20 @@ public class AppDBContext : DbContext
         modelBuilder.Entity<Detalle_ComprasEntity>().Property(d => d.Unidades_Totales)
             .HasComputedColumnSql("[Cantidad_Por_Presentacion] * [Cantidad]");
 
-        modelBuilder.Entity<ProductoEntity>().HasOne<CategoriaEntity>().WithMany()
+        modelBuilder.Entity<CategoriaEntity>().HasOne(c => c.Estado).WithMany()
+            .HasForeignKey(c => c.ID_Estado).OnDelete(DeleteBehavior.Restrict);
+        modelBuilder.Entity<Customer>().HasOne(c => c.Estado).WithMany()
+            .HasForeignKey(c => c.ID_Estado).OnDelete(DeleteBehavior.Restrict);
+        modelBuilder.Entity<Role>().HasOne(r => r.Estado).WithMany()
+            .HasForeignKey(r => r.ID_Estado).OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<ProductoEntity>().HasOne(p => p.Categoria).WithMany()
             .HasForeignKey(p => p.ID_Categoria).OnDelete(DeleteBehavior.Restrict);
-        modelBuilder.Entity<ProductoEntity>().HasOne<EstadoEntity>().WithMany()
+        modelBuilder.Entity<ProductoEntity>().HasOne(p => p.Estado).WithMany()
             .HasForeignKey(p => p.ID_Estado).OnDelete(DeleteBehavior.Restrict);
-        modelBuilder.Entity<PresentacionesEntity>().HasOne<ProductoEntity>().WithMany()
+        modelBuilder.Entity<PresentacionesEntity>().HasOne(p => p.Producto).WithMany()
             .HasForeignKey(p => p.ID_Producto).OnDelete(DeleteBehavior.Cascade);
-        modelBuilder.Entity<PresentacionesEntity>().HasOne<EstadoEntity>().WithMany()
+        modelBuilder.Entity<PresentacionesEntity>().HasOne(p => p.Estado).WithMany()
             .HasForeignKey(p => p.ID_Estado).OnDelete(DeleteBehavior.Restrict);
         modelBuilder.Entity<InventarioEntity>().HasOne<ProductoEntity>().WithMany()
             .HasForeignKey(i => i.ID_Producto).OnDelete(DeleteBehavior.Cascade);

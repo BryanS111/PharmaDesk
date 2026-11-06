@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FarmaDesk.Entity
 {
@@ -18,5 +19,11 @@ namespace FarmaDesk.Entity
 
         [StringLength(150)]
         public string Descripcion { get; set; }
+
+        [Required]
+        public int ID_Estado { get; set; }
+
+        [ForeignKey(nameof(ID_Estado))]
+        public virtual EstadoEntity Estado { get; set; } = null!;
     }
 }

@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FarmaDesk.DataAccess\FarmaDesk.DataAccess.csproj" />
+    <ProjectReference Include="..\FarmaDesk.Entity\FarmaDesk.Entity.csproj" />
+  </ItemGroup>
+
 </Project>
