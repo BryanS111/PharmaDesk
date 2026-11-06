@@ -41,6 +41,9 @@
             Categoria = new DataGridViewTextBoxColumn();
             Descripcion = new DataGridViewTextBoxColumn();
             label1 = new Label();
+            cmbEstado = new ComboBox();
+            label2 = new Label();
+            Estado = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGrid_Categoria).BeginInit();
             SuspendLayout();
             // 
@@ -120,7 +123,7 @@
             dataGrid_Categoria.BackgroundColor = Color.White;
             dataGrid_Categoria.BorderStyle = BorderStyle.None;
             dataGrid_Categoria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGrid_Categoria.Columns.AddRange(new DataGridViewColumn[] { Id, Categoria, Descripcion });
+            dataGrid_Categoria.Columns.AddRange(new DataGridViewColumn[] { Id, Categoria, Descripcion, Estado });
             dataGrid_Categoria.Location = new Point(101, 229);
             dataGrid_Categoria.Name = "dataGrid_Categoria";
             dataGrid_Categoria.Size = new Size(708, 214);
@@ -153,11 +156,37 @@
             label1.Text = "GESTIÓN DE CATEGORÍAS DE MEDICAMENTOS ";
             label1.Click += label1_Click;
             // 
+            // cmbEstado
+            // 
+            cmbEstado.FormattingEnabled = true;
+            cmbEstado.Location = new Point(203, 187);
+            cmbEstado.Margin = new Padding(2);
+            cmbEstado.Name = "cmbEstado";
+            cmbEstado.Size = new Size(154, 23);
+            cmbEstado.TabIndex = 24;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(110, 190);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(42, 15);
+            label2.TabIndex = 23;
+            label2.Text = "Estado";
+            // 
+            // Estado
+            // 
+            Estado.HeaderText = "Estado";
+            Estado.Name = "Estado";
+            // 
             // CategoryForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 529);
+            Controls.Add(cmbEstado);
+            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dataGrid_Categoria);
             Controls.Add(btnEliminar);
@@ -189,5 +218,8 @@
         private DataGridViewTextBoxColumn Categoria;
         private DataGridViewTextBoxColumn Descripcion;
         private Label label1;
+        private ComboBox cmbEstado;
+        private Label label2;
+        private DataGridViewTextBoxColumn Estado;
     }
 }

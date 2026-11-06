@@ -43,13 +43,13 @@
             btnGuardar = new Button();
             btnNuevo = new Button();
             dataGrid_Presentacion = new DataGridView();
+            label6 = new Label();
             ID = new DataGridViewTextBoxColumn();
             Presentacion = new DataGridViewTextBoxColumn();
             Categoria = new DataGridViewTextBoxColumn();
             PVenta = new DataGridViewTextBoxColumn();
             Unidades = new DataGridViewTextBoxColumn();
-            Estados = new DataGridViewTextBoxColumn();
-            label6 = new Label();
+            Estado = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)numUnidades).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGrid_Presentacion).BeginInit();
             SuspendLayout();
@@ -136,9 +136,9 @@
             label5.AutoSize = true;
             label5.Location = new Point(50, 185);
             label5.Name = "label5";
-            label5.Size = new Size(47, 15);
+            label5.Size = new Size(42, 15);
             label5.TabIndex = 15;
-            label5.Text = "Estados";
+            label5.Text = "Estado";
             // 
             // btnEliminar
             // 
@@ -182,12 +182,22 @@
             dataGrid_Presentacion.BackgroundColor = Color.White;
             dataGrid_Presentacion.BorderStyle = BorderStyle.None;
             dataGrid_Presentacion.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGrid_Presentacion.Columns.AddRange(new DataGridViewColumn[] { ID, Presentacion, Categoria, PVenta, Unidades, Estados });
+            dataGrid_Presentacion.Columns.AddRange(new DataGridViewColumn[] { ID, Presentacion, Categoria, PVenta, Unidades, Estado });
             dataGrid_Presentacion.Location = new Point(26, 275);
             dataGrid_Presentacion.Name = "dataGrid_Presentacion";
             dataGrid_Presentacion.Size = new Size(892, 249);
             dataGrid_Presentacion.TabIndex = 24;
             dataGrid_Presentacion.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(311, 9);
+            label6.Name = "label6";
+            label6.Size = new Size(321, 30);
+            label6.TabIndex = 43;
+            label6.Text = "GESTIÓN DE PRESENTACIONES";
             // 
             // ID
             // 
@@ -217,20 +227,10 @@
             Unidades.Name = "Unidades";
             Unidades.Width = 90;
             // 
-            // Estados
+            // Estado
             // 
-            Estados.HeaderText = "Estados";
-            Estados.Name = "Estados";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(311, 9);
-            label6.Name = "label6";
-            label6.Size = new Size(321, 30);
-            label6.TabIndex = 43;
-            label6.Text = "GESTIÓN DE PRESENTACIONES";
+            Estado.HeaderText = "Estado";
+            Estado.Name = "Estado";
             // 
             // PresentationForm
             // 
@@ -278,12 +278,12 @@
         private Button btnGuardar;
         private Button btnNuevo;
         private DataGridView dataGrid_Presentacion;
+        private Label label6;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Presentacion;
         private DataGridViewTextBoxColumn Categoria;
         private DataGridViewTextBoxColumn PVenta;
         private DataGridViewTextBoxColumn Unidades;
-        private DataGridViewTextBoxColumn Estados;
-        private Label label6;
+        private DataGridViewTextBoxColumn Estado;
     }
 }
