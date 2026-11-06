@@ -33,6 +33,6 @@ namespace FarmaDesk.Entity
         public virtual User User { get; set; }
 
         [ForeignKey("ID_Estado")]
-        public virtual State Estado { get; set; }
+        public virtual EstadoEntity Estado { get; set; }
     }
 }
