@@ -39,15 +39,15 @@
             txtClave = new TextBox();
             label5 = new Label();
             dgvUsuarios = new DataGridView();
-            btnLimpiar = new Button();
-            btnGuardar = new Button();
-            btnNuevo = new Button();
             ID = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             Categoria = new DataGridViewTextBoxColumn();
             PVenta = new DataGridViewTextBoxColumn();
             Stock = new DataGridViewTextBoxColumn();
             Clave = new DataGridViewTextBoxColumn();
+            btnLimpiar = new Button();
+            btnGuardar = new Button();
+            btnNuevo = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             SuspendLayout();
             // 
@@ -58,6 +58,7 @@
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(406, 23);
             txtNombre.TabIndex = 3;
+            txtNombre.TextChanged += txtNombre_TextChanged;
             // 
             // label1
             // 
@@ -76,6 +77,7 @@
             textUsuario.Name = "textUsuario";
             textUsuario.Size = new Size(226, 23);
             textUsuario.TabIndex = 5;
+            textUsuario.TextChanged += textUsuario_TextChanged;
             // 
             // label2
             // 
@@ -95,6 +97,7 @@
             cmbRol.Name = "cmbRol";
             cmbRol.Size = new Size(192, 23);
             cmbRol.TabIndex = 7;
+            cmbRol.SelectedIndexChanged += cmbRol_SelectedIndexChanged;
             // 
             // label3
             // 
@@ -114,6 +117,7 @@
             cmbEstado.Name = "cmbEstado";
             cmbEstado.Size = new Size(192, 23);
             cmbEstado.TabIndex = 9;
+            cmbEstado.SelectedIndexChanged += cmbEstado_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -121,7 +125,7 @@
             label4.Location = new Point(233, 74);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(53, 15);
+            label4.Size = new Size(52, 15);
             label4.TabIndex = 8;
             label4.Text = "ESTADO:";
             // 
@@ -132,6 +136,7 @@
             txtClave.Name = "txtClave";
             txtClave.Size = new Size(226, 23);
             txtClave.TabIndex = 11;
+            txtClave.TextChanged += txtClave_TextChanged;
             // 
             // label5
             // 
@@ -153,33 +158,7 @@
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.Size = new Size(887, 249);
             dgvUsuarios.TabIndex = 25;
-            // 
-            // btnLimpiar
-            // 
-            btnLimpiar.Location = new Point(844, 14);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(75, 23);
-            btnLimpiar.TabIndex = 23;
-            btnLimpiar.Text = "Limpiar";
-            btnLimpiar.UseVisualStyleBackColor = true;
-            // 
-            // btnGuardar
-            // 
-            btnGuardar.Location = new Point(833, 147);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(75, 23);
-            btnGuardar.TabIndex = 22;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // btnNuevo
-            // 
-            btnNuevo.Location = new Point(742, 148);
-            btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(75, 23);
-            btnNuevo.TabIndex = 21;
-            btnNuevo.Text = "Nuevo";
-            btnNuevo.UseVisualStyleBackColor = true;
+            dgvUsuarios.CellContentClick += dgvUsuarios_CellContentClick;
             // 
             // ID
             // 
@@ -213,6 +192,36 @@
             // 
             Clave.HeaderText = "Clave";
             Clave.Name = "Clave";
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.Location = new Point(844, 14);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(75, 23);
+            btnLimpiar.TabIndex = 23;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.Location = new Point(833, 147);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(75, 23);
+            btnGuardar.TabIndex = 22;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
+            // 
+            // btnNuevo
+            // 
+            btnNuevo.Location = new Point(742, 148);
+            btnNuevo.Name = "btnNuevo";
+            btnNuevo.Size = new Size(75, 23);
+            btnNuevo.TabIndex = 21;
+            btnNuevo.Text = "Nuevo";
+            btnNuevo.UseVisualStyleBackColor = true;
+            btnNuevo.Click += btnNuevo_Click;
             // 
             // UsuariosForm
             // 
