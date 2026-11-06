@@ -48,14 +48,14 @@
             btnGuardar = new Button();
             btnLimpiar = new Button();
             btnEliminar = new Button();
-            dataGridView1 = new DataGridView();
+            dgvProductos = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             Categoria = new DataGridViewTextBoxColumn();
             PVenta = new DataGridViewTextBoxColumn();
             Stock = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)numStockMinimo).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -71,7 +71,7 @@
             // txtNombre
             // 
             txtNombre.Location = new Point(33, 43);
-            txtNombre.Margin = new Padding(2, 2, 2, 2);
+            txtNombre.Margin = new Padding(2);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(406, 23);
             txtNombre.TabIndex = 1;
@@ -90,7 +90,7 @@
             // txtDescripcion
             // 
             txtDescripcion.Location = new Point(33, 91);
-            txtDescripcion.Margin = new Padding(2, 2, 2, 2);
+            txtDescripcion.Margin = new Padding(2);
             txtDescripcion.Multiline = true;
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(406, 69);
@@ -111,7 +111,7 @@
             // 
             cmbCategoria.FormattingEnabled = true;
             cmbCategoria.Location = new Point(33, 188);
-            cmbCategoria.Margin = new Padding(2, 2, 2, 2);
+            cmbCategoria.Margin = new Padding(2);
             cmbCategoria.Name = "cmbCategoria";
             cmbCategoria.Size = new Size(192, 23);
             cmbCategoria.TabIndex = 5;
@@ -129,7 +129,7 @@
             // numStockMinimo
             // 
             numStockMinimo.Location = new Point(246, 189);
-            numStockMinimo.Margin = new Padding(2, 2, 2, 2);
+            numStockMinimo.Margin = new Padding(2);
             numStockMinimo.Name = "numStockMinimo";
             numStockMinimo.Size = new Size(190, 23);
             numStockMinimo.TabIndex = 7;
@@ -157,7 +157,7 @@
             // txtPrecioCompra
             // 
             txtPrecioCompra.Location = new Point(33, 242);
-            txtPrecioCompra.Margin = new Padding(2, 2, 2, 2);
+            txtPrecioCompra.Margin = new Padding(2);
             txtPrecioCompra.Name = "txtPrecioCompra";
             txtPrecioCompra.Size = new Size(192, 23);
             txtPrecioCompra.TabIndex = 10;
@@ -165,7 +165,7 @@
             // txtPrecioVenta
             // 
             txtPrecioVenta.Location = new Point(246, 242);
-            txtPrecioVenta.Margin = new Padding(2, 2, 2, 2);
+            txtPrecioVenta.Margin = new Padding(2);
             txtPrecioVenta.Name = "txtPrecioVenta";
             txtPrecioVenta.Size = new Size(192, 23);
             txtPrecioVenta.TabIndex = 11;
@@ -245,16 +245,16 @@
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvProductos
             // 
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Nombre, Categoria, PVenta, Stock });
-            dataGridView1.Location = new Point(33, 287);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(787, 249);
-            dataGridView1.TabIndex = 20;
+            dgvProductos.BackgroundColor = Color.White;
+            dgvProductos.BorderStyle = BorderStyle.None;
+            dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { ID, Nombre, Categoria, PVenta, Stock });
+            dgvProductos.Location = new Point(33, 287);
+            dgvProductos.Name = "dgvProductos";
+            dgvProductos.Size = new Size(787, 249);
+            dgvProductos.TabIndex = 20;
             // 
             // ID
             // 
@@ -289,7 +289,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(974, 548);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvProductos);
             Controls.Add(btnEliminar);
             Controls.Add(btnLimpiar);
             Controls.Add(btnGuardar);
@@ -310,12 +310,12 @@
             Controls.Add(label2);
             Controls.Add(txtNombre);
             Controls.Add(label1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "ProductosForm";
             Text = "PRODUCTOS - CRUD";
             WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)numStockMinimo).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -342,7 +342,7 @@
         private Button btnGuardar;
         private Button btnLimpiar;
         private Button btnEliminar;
-        private DataGridView dataGridView1;
+        private DataGridView dgvProductos;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Categoria;
