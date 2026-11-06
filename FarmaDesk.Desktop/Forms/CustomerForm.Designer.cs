@@ -50,6 +50,9 @@
             textBox2 = new TextBox();
             txtDireccion = new TextBox();
             label6 = new Label();
+            cmbEstado = new ComboBox();
+            label7 = new Label();
+            Estado = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGrid_Presentacion).BeginInit();
             SuspendLayout();
             // 
@@ -58,7 +61,7 @@
             dataGrid_Presentacion.BackgroundColor = Color.White;
             dataGrid_Presentacion.BorderStyle = BorderStyle.None;
             dataGrid_Presentacion.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGrid_Presentacion.Columns.AddRange(new DataGridViewColumn[] { ID, Nombre, Apellido, Telefono, Documento, Direccion });
+            dataGrid_Presentacion.Columns.AddRange(new DataGridViewColumn[] { ID, Nombre, Apellido, Telefono, Documento, Direccion, Estado });
             dataGrid_Presentacion.Location = new Point(18, 312);
             dataGrid_Presentacion.Name = "dataGrid_Presentacion";
             dataGrid_Presentacion.Size = new Size(892, 249);
@@ -97,7 +100,7 @@
             // btnEliminar
             // 
             btnEliminar.ForeColor = Color.Black;
-            btnEliminar.Location = new Point(734, 222);
+            btnEliminar.Location = new Point(734, 244);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(75, 23);
             btnEliminar.TabIndex = 38;
@@ -106,7 +109,7 @@
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(644, 222);
+            btnLimpiar.Location = new Point(644, 244);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(75, 23);
             btnLimpiar.TabIndex = 37;
@@ -115,7 +118,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(550, 222);
+            btnGuardar.Location = new Point(550, 244);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(75, 23);
             btnGuardar.TabIndex = 36;
@@ -124,7 +127,7 @@
             // 
             // btnNuevo
             // 
-            btnNuevo.Location = new Point(459, 223);
+            btnNuevo.Location = new Point(459, 245);
             btnNuevo.Name = "btnNuevo";
             btnNuevo.Size = new Size(75, 23);
             btnNuevo.TabIndex = 35;
@@ -228,11 +231,37 @@
             label6.TabIndex = 42;
             label6.Text = "GESTIÓN DE CLENTES";
             // 
+            // cmbEstado
+            // 
+            cmbEstado.FormattingEnabled = true;
+            cmbEstado.Location = new Point(458, 201);
+            cmbEstado.Margin = new Padding(2);
+            cmbEstado.Name = "cmbEstado";
+            cmbEstado.Size = new Size(154, 23);
+            cmbEstado.TabIndex = 44;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(454, 184);
+            label7.Margin = new Padding(2, 0, 2, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(42, 15);
+            label7.TabIndex = 43;
+            label7.Text = "Estado";
+            // 
+            // Estado
+            // 
+            Estado.HeaderText = "Estado";
+            Estado.Name = "Estado";
+            // 
             // CustomerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(924, 590);
+            Controls.Add(cmbEstado);
+            Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(txtDireccion);
             Controls.Add(textBox2);
@@ -280,5 +309,8 @@
         private DataGridViewTextBoxColumn Documento;
         private DataGridViewTextBoxColumn Direccion;
         private Label label6;
+        private ComboBox cmbEstado;
+        private Label label7;
+        private DataGridViewTextBoxColumn Estado;
     }
 }
