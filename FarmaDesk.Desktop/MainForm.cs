@@ -110,6 +110,11 @@ public class MainForm : Form
         form.Show();
     }
 
+    private void InitializeComponent()
+    {
+
+    }
+
     private static void ShowComingSoon(string message)
     {
         MessageBox.Show(message, "Módulo pendiente", MessageBoxButtons.OK, MessageBoxIcon.Information);
