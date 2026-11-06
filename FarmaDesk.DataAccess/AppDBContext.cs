@@ -5,6 +5,10 @@ namespace FarmaDesk.DataAccess
 {
     public class AppDBContext : DbContext
     {
+        static void Main()
+        {
+
+        }
         public AppDBContext() {
 
         }
@@ -14,6 +18,7 @@ namespace FarmaDesk.DataAccess
         public DbSet<Categoria> Categoria { get; set; }
         public DbSet<Productos> Productos { get; set; }
     }
+
 
     public class Productos
     {

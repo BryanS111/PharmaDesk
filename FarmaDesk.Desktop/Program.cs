@@ -17,7 +17,7 @@ namespace FarmaDesk.Desktop
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-
+            /*
 
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
@@ -32,7 +32,7 @@ namespace FarmaDesk.Desktop
                     b => b.MigrationsAssembly("KioscoSV.DataAccess")
                 ));
 
-            /*
+            
             services.AddScoped<ProductRepository>();
             services.AddScoped<CustomerRepository>();
             services.AddScoped<CategoriaRepository>();
@@ -47,7 +47,8 @@ namespace FarmaDesk.Desktop
             var serviceProvider = services.BuildServiceProvider();
 
             var mainForm = serviceProvider.GetRequiredService<frmPrincipal>();
-            Application.Run(mainForm);*/
+            */
+            Application.Run(new Forms.CashRegisterForms());
         }
     }
 }

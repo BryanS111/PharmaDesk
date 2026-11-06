@@ -35,6 +35,6 @@ namespace FarmaDesk.Entity
         public virtual Role Rol { get; set; }
 
         [ForeignKey("ID_Estado")]
-        public virtual State Estado { get; set; }
+        public virtual EstadoEntity Estado { get; set; }
     }
 }
