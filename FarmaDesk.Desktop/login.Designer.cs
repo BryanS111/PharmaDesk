@@ -74,6 +74,7 @@
             btn_Ingresarbtn_Ingresar.TabIndex = 5;
             btn_Ingresarbtn_Ingresar.Text = "INGRESAR";
             btn_Ingresarbtn_Ingresar.UseVisualStyleBackColor = false;
+            btn_Ingresarbtn_Ingresar.Click += btn_Ingresar_Click;
             // 
             // btn_salir
             // 
@@ -86,6 +87,7 @@
             btn_salir.TabIndex = 6;
             btn_salir.Text = "SALIR";
             btn_salir.UseVisualStyleBackColor = false;
+            btn_salir.Click += btn_salir_Click;
             // 
             // label3
             // 

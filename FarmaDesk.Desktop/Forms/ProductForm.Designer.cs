@@ -1,6 +1,6 @@
 ﻿namespace FarmaDesk.Desktop.Forms.Productos
 {
-    partial class ProductosForm
+    partial class ProductForm
     {
         /// <summary>
         /// Required designer variable.
@@ -311,7 +311,7 @@
             Controls.Add(txtNombre);
             Controls.Add(label1);
             Margin = new Padding(2);
-            Name = "ProductosForm";
+            Name = "ProductForm";
             Text = "PRODUCTOS - CRUD";
             WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)numStockMinimo).EndInit();

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FarmaDesk.Entity;
 
 namespace FarmaDesk.DataAccess
 {
@@ -14,10 +15,9 @@ namespace FarmaDesk.DataAccess
         {
 
         }
-        public AppDBContext(DbContextOptions<AppDBContext> options);
-             base(options) {}
-        public DbSet<Estado> Estado { get; set; }
-        public DbSet<Categoria> Categoria { get; set; }
-        public DbSet<Productos> Productos { get; set; }
+        public AppDBContext(DbContextOptions<AppDBContext> options) : base(options) { }
+        public DbSet<EstadoEntity> Estado { get; set; }
+        public DbSet<CategoriaEntity> Categoria { get; set; }
+        public DbSet<ProductoEntity> Productos { get; set; }
     }
 }

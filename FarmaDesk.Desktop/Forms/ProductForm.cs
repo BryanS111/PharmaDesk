@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Formulario de productos integrado al módulo de inventario.
+
 namespace FarmaDesk.Desktop.Forms.Productos
 {
-    public partial class ProductosForm : Form
+    public partial class ProductForm : Form
     {
-        public ProductosForm()
+        public ProductForm()
         {
             InitializeComponent();
         }
