@@ -41,14 +41,15 @@
             txtMontoFinal = new TextBox();
             label5 = new Label();
             dgvProductos = new DataGridView();
-            btnGuardar = new Button();
-            btnNuevo = new Button();
             ID = new DataGridViewTextBoxColumn();
             Usuario = new DataGridViewTextBoxColumn();
+            Apertura = new DataGridViewTextBoxColumn();
             Cierre = new DataGridViewTextBoxColumn();
             MontoInicial = new DataGridViewTextBoxColumn();
             MontoFinal = new DataGridViewTextBoxColumn();
             Estado = new DataGridViewTextBoxColumn();
+            btnGuardar = new Button();
+            btnNuevo = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
             SuspendLayout();
             // 
@@ -64,6 +65,7 @@
             // 
             // cmbUsuario
             // 
+            cmbUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbUsuario.Enabled = false;
             cmbUsuario.FormattingEnabled = true;
             cmbUsuario.Location = new Point(36, 41);
@@ -98,7 +100,6 @@
             txtMontoInicial.PlaceholderText = "0.00";
             txtMontoInicial.Size = new Size(192, 23);
             txtMontoInicial.TabIndex = 11;
-            txtMontoInicial.TextChanged += txtNombre_TextChanged;
             // 
             // label3
             // 
@@ -176,29 +177,11 @@
             dgvProductos.BackgroundColor = Color.White;
             dgvProductos.BorderStyle = BorderStyle.None;
             dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { ID, Usuario, Cierre, MontoInicial, MontoFinal, Estado });
-            dgvProductos.Location = new Point(36, 236);
+            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { ID, Usuario, Apertura, Cierre, MontoInicial, MontoFinal, Estado });
+            dgvProductos.Location = new Point(4, 236);
             dgvProductos.Name = "dgvProductos";
-            dgvProductos.Size = new Size(671, 249);
+            dgvProductos.Size = new Size(778, 249);
             dgvProductos.TabIndex = 21;
-            // 
-            // btnGuardar
-            // 
-            btnGuardar.Location = new Point(622, 207);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(75, 23);
-            btnGuardar.TabIndex = 23;
-            btnGuardar.Text = "Cerrar Caja";
-            btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // btnNuevo
-            // 
-            btnNuevo.Location = new Point(541, 207);
-            btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(75, 23);
-            btnNuevo.TabIndex = 22;
-            btnNuevo.Text = "Abrir Caja";
-            btnNuevo.UseVisualStyleBackColor = true;
             // 
             // ID
             // 
@@ -210,6 +193,11 @@
             Usuario.HeaderText = "Usuario";
             Usuario.Name = "Usuario";
             Usuario.Width = 150;
+            // 
+            // Apertura
+            // 
+            Apertura.HeaderText = "Apertura";
+            Apertura.Name = "Apertura";
             // 
             // Cierre
             // 
@@ -233,11 +221,29 @@
             Estado.HeaderText = "Estado";
             Estado.Name = "Estado";
             // 
+            // btnGuardar
+            // 
+            btnGuardar.Location = new Point(622, 207);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(75, 23);
+            btnGuardar.TabIndex = 23;
+            btnGuardar.Text = "Cerrar Caja";
+            btnGuardar.UseVisualStyleBackColor = true;
+            // 
+            // btnNuevo
+            // 
+            btnNuevo.Location = new Point(541, 207);
+            btnNuevo.Name = "btnNuevo";
+            btnNuevo.Size = new Size(75, 23);
+            btnNuevo.TabIndex = 22;
+            btnNuevo.Text = "Abrir Caja";
+            btnNuevo.UseVisualStyleBackColor = true;
+            // 
             // CashRegisterForms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(750, 552);
+            ClientSize = new Size(794, 552);
             Controls.Add(btnGuardar);
             Controls.Add(btnNuevo);
             Controls.Add(dgvProductos);
@@ -278,9 +284,13 @@
         private Button btnNuevo;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Usuario;
+        private DataGridViewTextBoxColumn Apertura;
         private DataGridViewTextBoxColumn Cierre;
         private DataGridViewTextBoxColumn MontoInicial;
         private DataGridViewTextBoxColumn MontoFinal;
         private DataGridViewTextBoxColumn Estado;
     }
 }
+
+
+

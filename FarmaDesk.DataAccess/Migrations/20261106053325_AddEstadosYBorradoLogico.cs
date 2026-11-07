@@ -17,31 +17,21 @@ namespace FarmaDesk.DataAccess.Migrations
                 table: "Rol",
                 type: "int",
                 nullable: false,
-                defaultValue: 0);
+                defaultValue: 1);
 
             migrationBuilder.AddColumn<int>(
                 name: "ID_Estado",
                 table: "Cliente",
                 type: "int",
                 nullable: false,
-                defaultValue: 0);
+                defaultValue: 1);
 
             migrationBuilder.AddColumn<int>(
                 name: "ID_Estado",
                 table: "Categoria",
                 type: "int",
                 nullable: false,
-                defaultValue: 0);
-
-            migrationBuilder.InsertData(
-                table: "Estado",
-                columns: new[] { "ID_Estado", "Descripcion", "Estado" },
-                values: new object[,]
-                {
-                    { 1, "Registro disponible", "Activo" },
-                    { 2, "Registro deshabilitado", "Inactivo" }
-                });
-
+                defaultValue: 1);
             migrationBuilder.CreateIndex(
                 name: "IX_Rol_ID_Estado",
                 table: "Rol",
@@ -109,15 +99,6 @@ namespace FarmaDesk.DataAccess.Migrations
                 name: "IX_Categoria_ID_Estado",
                 table: "Categoria");
 
-            migrationBuilder.DeleteData(
-                table: "Estado",
-                keyColumn: "ID_Estado",
-                keyValue: 1);
-
-            migrationBuilder.DeleteData(
-                table: "Estado",
-                keyColumn: "ID_Estado",
-                keyValue: 2);
 
             migrationBuilder.DropColumn(
                 name: "ID_Estado",
@@ -133,3 +114,5 @@ namespace FarmaDesk.DataAccess.Migrations
         }
     }
 }
+
+

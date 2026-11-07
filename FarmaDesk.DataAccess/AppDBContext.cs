@@ -1,4 +1,4 @@
-using FarmaDesk.Entity;
+﻿using FarmaDesk.Entity;
 using Microsoft.EntityFrameworkCore;
 
 namespace FarmaDesk.DataAccess;
@@ -44,10 +44,6 @@ public class AppDBContext : DbContext
         modelBuilder.Entity<Detalle_VentasEntity>().ToTable("Detalle_Ventas");
         modelBuilder.Entity<ComprasEntity>().ToTable("Compras");
         modelBuilder.Entity<Detalle_ComprasEntity>().ToTable("Detalle_Compras");
-
-        modelBuilder.Entity<EstadoEntity>().HasData(
-            new EstadoEntity { ID_Estado = 1, Estado = "Activo", Descripcion = "Registro disponible" },
-            new EstadoEntity { ID_Estado = 2, Estado = "Inactivo", Descripcion = "Registro deshabilitado" });
 
         modelBuilder.Entity<ProductoEntity>().Property(p => p.Precio_Compra_Unidad).HasPrecision(18, 2);
         modelBuilder.Entity<ProductoEntity>().Property(p => p.Precio_Venta_Unidad).HasPrecision(18, 2);
@@ -127,3 +123,4 @@ public class AppDBContext : DbContext
             .HasForeignKey(m => m.ID_Venta).OnDelete(DeleteBehavior.NoAction);
     }
 }
+
