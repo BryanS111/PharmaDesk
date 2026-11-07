@@ -1,4 +1,4 @@
-using FarmaDesk.Desktop.Forms;
+﻿using FarmaDesk.Desktop.Forms;
 using FarmaDesk.Desktop.Forms.Productos;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -9,11 +9,13 @@ public class MainForm : Form
     private readonly Panel contentPanel = new();
     private readonly Panel dashboardPanel = new();
     private readonly IServiceProvider services;
+    private readonly User currentUser;
     private Form? activeForm;
 
-    public MainForm(IServiceProvider services)
+    public MainForm(IServiceProvider services, User currentUser)
     {
         this.services = services;
+        this.currentUser = currentUser;
         InitializeLayout();
         ShowDashboard();
     }
@@ -29,19 +31,19 @@ public class MainForm : Form
 
         var inventory = new ToolStripMenuItem("Inventario");
         inventory.DropDownItems.Add("Productos", null, (_, _) => OpenForm(services.GetRequiredService<ProductForm>()));
-        inventory.DropDownItems.Add("Categorías", null, (_, _) => OpenForm(services.GetRequiredService<CategoryForm>()));
+        inventory.DropDownItems.Add("CategorÃ­as", null, (_, _) => OpenForm(services.GetRequiredService<CategoryForm>()));
         inventory.DropDownItems.Add("Presentaciones", null, (_, _) => OpenForm(services.GetRequiredService<PresentationForm>()));
 
         var sales = new ToolStripMenuItem("Ventas");
         sales.DropDownItems.Add("Clientes", null, (_, _) => OpenForm(new CustomerForm()));
-        sales.DropDownItems.Add("Caja", null, (_, _) => OpenForm(new CashRegisterForms()));
-        sales.DropDownItems.Add("Ventas próximamente", null, (_, _) => ShowComingSoon("El módulo de ventas estará disponible próximamente."));
+        sales.DropDownItems.Add("Caja", null, (_, _) => OpenForm(new CashRegisterForms(currentUser.ID_Usuario)));
+        sales.DropDownItems.Add("Ventas prÃ³ximamente", null, (_, _) => ShowComingSoon("El mÃ³dulo de ventas estarÃ¡ disponible prÃ³ximamente."));
 
         var purchases = new ToolStripMenuItem("Compras");
         purchases.DropDownItems.Add("Proveedores", null, (_, _) => OpenForm(new SupplierForm()));
-        purchases.DropDownItems.Add("Compras próximamente", null, (_, _) => ShowComingSoon("El módulo de compras estará disponible próximamente."));
+        purchases.DropDownItems.Add("Compras prÃ³ximamente", null, (_, _) => ShowComingSoon("El mÃ³dulo de compras estarÃ¡ disponible prÃ³ximamente."));
 
-        var administration = new ToolStripMenuItem("Administración");
+        var administration = new ToolStripMenuItem("AdministraciÃ³n");
         administration.DropDownItems.Add("Usuarios", null, (_, _) => OpenForm(services.GetRequiredService<UsuariosForm>()));
         administration.DropDownItems.Add("Roles", null, (_, _) => OpenForm(services.GetRequiredService<RoleForm>()));
 
@@ -51,7 +53,7 @@ public class MainForm : Form
             sales,
             purchases,
             administration,
-            new ToolStripMenuItem("Cerrar sesión", null, (_, _) => Close())
+            new ToolStripMenuItem("Cerrar sesiÃ³n", null, (_, _) => Close())
         ]);
 
         MainMenuStrip = menu;
@@ -83,15 +85,15 @@ public class MainForm : Form
         var alerts = new GroupBox { Text = "Alertas del sistema", Location = new Point(10, 250), Size = new Size(500, 140) };
         alerts.Controls.Add(new Label
         {
-            Text = "- No hay ventas registradas durante el día.\n- No hay productos con stock bajo.\n- La caja aún no ha sido abierta.",
+            Text = "- No hay ventas registradas durante el dÃ­a.\n- No hay productos con stock bajo.\n- La caja aÃºn no ha sido abierta.",
             AutoSize = true,
             Location = new Point(20, 30)
         });
 
-        var shortcuts = new GroupBox { Text = "Accesos rápidos", Location = new Point(540, 80), Size = new Size(300, 180) };
+        var shortcuts = new GroupBox { Text = "Accesos rÃ¡pidos", Location = new Point(540, 80), Size = new Size(300, 180) };
         var productsButton = new Button { Text = "Productos", AutoSize = true, Location = new Point(20, 30) };
         productsButton.Click += (_, _) => OpenForm(services.GetRequiredService<ProductForm>());
-        var categoriesButton = new Button { Text = "Categorías", AutoSize = true, Location = new Point(20, 70) };
+        var categoriesButton = new Button { Text = "CategorÃ­as", AutoSize = true, Location = new Point(20, 70) };
         categoriesButton.Click += (_, _) => OpenForm(services.GetRequiredService<CategoryForm>());
         var presentationsButton = new Button { Text = "Presentaciones", AutoSize = true, Location = new Point(20, 110) };
         presentationsButton.Click += (_, _) => OpenForm(services.GetRequiredService<PresentationForm>());
@@ -120,6 +122,7 @@ public class MainForm : Form
 
     private static void ShowComingSoon(string message)
     {
-        MessageBox.Show(message, "Módulo pendiente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        MessageBox.Show(message, "MÃ³dulo pendiente", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 }
+

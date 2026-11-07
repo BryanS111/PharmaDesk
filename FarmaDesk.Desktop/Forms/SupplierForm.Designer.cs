@@ -240,7 +240,6 @@
             label2.Size = new Size(57, 15);
             label2.TabIndex = 23;
             label2.Text = "Dirección";
-            label2.Click += label2_Click;
             // 
             // txtProveedor
             // 
