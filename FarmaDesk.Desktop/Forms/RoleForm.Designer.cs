@@ -54,6 +54,7 @@
             dataGrid_Rol.Name = "dataGrid_Rol";
             dataGrid_Rol.Size = new Size(708, 214);
             dataGrid_Rol.TabIndex = 30;
+            dataGrid_Rol.CellContentClick += dataGrid_Rol_CellContentClick;
             // 
             // Id
             // 
@@ -80,6 +81,7 @@
             btnEliminar.TabIndex = 29;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnLimpiar
             // 
@@ -89,6 +91,7 @@
             btnLimpiar.TabIndex = 28;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // btnGuardar
             // 
@@ -98,6 +101,7 @@
             btnGuardar.TabIndex = 27;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // btnNuevo
             // 
@@ -107,6 +111,7 @@
             btnNuevo.TabIndex = 26;
             btnNuevo.Text = "Nuevo";
             btnNuevo.UseVisualStyleBackColor = true;
+            btnNuevo.Click += btnNuevo_Click;
             // 
             // textDescripcion
             // 
@@ -115,6 +120,7 @@
             textDescripcion.Name = "textDescripcion";
             textDescripcion.Size = new Size(406, 23);
             textDescripcion.TabIndex = 25;
+            textDescripcion.TextChanged += textDescripcion_TextChanged;
             // 
             // txtRol
             // 
@@ -123,6 +129,7 @@
             txtRol.Name = "txtRol";
             txtRol.Size = new Size(406, 23);
             txtRol.TabIndex = 24;
+            txtRol.TextChanged += txtRol_TextChanged;
             // 
             // label4
             // 

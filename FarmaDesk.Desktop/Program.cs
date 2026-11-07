@@ -41,6 +41,7 @@ namespace FarmaDesk.Desktop
             services.AddTransient<PresentationForm>();
             services.AddTransient<MainForm>();
             services.AddTransient<login>();
+            services.AddScoped<UserRepository>();
 
             using var serviceProvider = services.BuildServiceProvider();
             Application.Run(serviceProvider.GetRequiredService<login>());
