@@ -42,8 +42,8 @@ public class MainForm : Form
         purchases.DropDownItems.Add("Compras próximamente", null, (_, _) => ShowComingSoon("El módulo de compras estará disponible próximamente."));
 
         var administration = new ToolStripMenuItem("Administración");
-        administration.DropDownItems.Add("Usuarios", null, (_, _) => OpenForm(new UsuariosForm()));
-        administration.DropDownItems.Add("Roles", null, (_, _) => OpenForm(new RoleForm()));
+        administration.DropDownItems.Add("Usuarios", null, (_, _) => OpenForm(services.GetRequiredService<UsuariosForm>()));
+        administration.DropDownItems.Add("Roles", null, (_, _) => OpenForm(services.GetRequiredService<RoleForm>()));
 
         menu.Items.AddRange([
             new ToolStripMenuItem("Inicio", null, (_, _) => ShowDashboard()),

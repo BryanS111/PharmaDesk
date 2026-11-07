@@ -39,6 +39,8 @@ namespace FarmaDesk.Desktop
             services.AddTransient<CategoryForm>();
             services.AddTransient<ProductForm>();
             services.AddTransient<PresentationForm>();
+            services.AddTransient<UsuariosForm>();
+            services.AddTransient<RoleForm>();
             services.AddTransient<MainForm>();
             services.AddTransient<login>();
             services.AddScoped<UserRepository>();
