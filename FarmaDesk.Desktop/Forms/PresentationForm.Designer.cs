@@ -30,7 +30,7 @@
         {
             label1 = new Label();
             label2 = new Label();
-            txtProducto = new TextBox();
+            txtProducto = new ComboBox();
             textPresentacion = new TextBox();
             numUnidades = new NumericUpDown();
             label3 = new Label();
@@ -265,7 +265,7 @@
 
         private Label label1;
         private Label label2;
-        private TextBox txtProducto;
+        private ComboBox txtProducto;
         private TextBox textPresentacion;
         private NumericUpDown numUnidades;
         private Label label3;

@@ -49,8 +49,6 @@ public class AppDBContext : DbContext
             new EstadoEntity { ID_Estado = 1, Estado = "Activo", Descripcion = "Registro disponible" },
             new EstadoEntity { ID_Estado = 2, Estado = "Inactivo", Descripcion = "Registro deshabilitado" });
 
-        modelBuilder.Entity<ProductoEntity>().Property(p => p.Precio_Compra_Unidad).HasPrecision(18, 2);
-        modelBuilder.Entity<ProductoEntity>().Property(p => p.Precio_Venta_Unidad).HasPrecision(18, 2);
         modelBuilder.Entity<PresentacionesEntity>().Property(p => p.Precio_Venta).HasPrecision(18, 2);
         modelBuilder.Entity<CashRegister>().Property(c => c.Monto_Inicial).HasPrecision(18, 2);
         modelBuilder.Entity<CashRegister>().Property(c => c.Monto_Final).HasPrecision(18, 2);

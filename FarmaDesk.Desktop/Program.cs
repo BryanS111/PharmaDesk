@@ -1,5 +1,7 @@
 using FarmaDesk.BusinessLogic;
 using FarmaDesk.DataAccess;
+using FarmaDesk.Desktop.Forms;
+using FarmaDesk.Desktop.Forms.Productos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,9 +36,14 @@ namespace FarmaDesk.Desktop
             services.AddScoped<SupplierRepository>();
             services.AddScoped<CustomerRepository>();
             services.AddScoped<RoleRepository>();
+            services.AddTransient<CategoryForm>();
+            services.AddTransient<ProductForm>();
+            services.AddTransient<PresentationForm>();
+            services.AddTransient<MainForm>();
+            services.AddTransient<login>();
 
             using var serviceProvider = services.BuildServiceProvider();
-            Application.Run(new login());
+            Application.Run(serviceProvider.GetRequiredService<login>());
         }
     }
 }

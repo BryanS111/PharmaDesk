@@ -11,7 +11,7 @@ public class PresentationRepository
     public PresentationRepository(AppDBContext context) => this.context = context;
 
     public List<PresentacionesEntity> GetAll() => context.Presentaciones.Include(p => p.Producto).Include(p => p.Estado).AsNoTracking().OrderBy(p => p.Presentacion).ToList();
-    public PresentacionesEntity? GetById(int id) => context.Presentaciones.Include(p => p.Producto).Include(p => p.Estado).FirstOrDefault(p => p.ID_Presentacion == id);
+    public PresentacionesEntity? GetById(int id) => context.Presentaciones.Include(p => p.Producto).Include(p => p.Estado).AsNoTracking().FirstOrDefault(p => p.ID_Presentacion == id);
 
     public void Insert(PresentacionesEntity entity)
     {
@@ -24,7 +24,14 @@ public class PresentationRepository
     public void Update(PresentacionesEntity entity)
     {
         Validate(entity);
-        context.Presentaciones.Update(entity);
+        var existing = context.Presentaciones.Find(entity.ID_Presentacion)
+            ?? throw new KeyNotFoundException("Presentación no encontrada.");
+
+        existing.ID_Producto = entity.ID_Producto;
+        existing.Presentacion = entity.Presentacion;
+        existing.Unidades_Equivalentes = entity.Unidades_Equivalentes;
+        existing.Precio_Venta = entity.Precio_Venta;
+        existing.ID_Estado = entity.ID_Estado;
         context.SaveChanges();
     }
 

@@ -11,7 +11,7 @@ public class SupplierRepository
     public SupplierRepository(AppDBContext context) => this.context = context;
 
     public List<Supplier> GetAll() => context.Proveedores.Include(s => s.Estado).AsNoTracking().OrderBy(s => s.Proveedor).ToList();
-    public Supplier? GetById(int id) => context.Proveedores.Include(s => s.Estado).FirstOrDefault(s => s.ID_Proveedor == id);
+    public Supplier? GetById(int id) => context.Proveedores.Include(s => s.Estado).AsNoTracking().FirstOrDefault(s => s.ID_Proveedor == id);
 
     public void Insert(Supplier entity)
     {
@@ -24,7 +24,16 @@ public class SupplierRepository
     public void Update(Supplier entity)
     {
         Validate(entity);
-        context.Proveedores.Update(entity);
+        var existing = context.Proveedores.Find(entity.ID_Proveedor)
+            ?? throw new KeyNotFoundException("Proveedor no encontrado.");
+
+        existing.Proveedor = entity.Proveedor;
+        existing.Telefono = entity.Telefono;
+        existing.Correo = entity.Correo;
+        existing.Direccion = entity.Direccion;
+        existing.NIT = entity.NIT;
+        existing.NRC = entity.NRC;
+        existing.ID_Estado = entity.ID_Estado;
         context.SaveChanges();
     }
 

@@ -11,7 +11,7 @@ public class ProductRepository
     public ProductRepository(AppDBContext context) => this.context = context;
 
     public List<ProductoEntity> GetAll() => context.Productos.Include(p => p.Categoria).Include(p => p.Estado).AsNoTracking().OrderBy(p => p.Producto).ToList();
-    public ProductoEntity? GetById(int id) => context.Productos.Include(p => p.Categoria).Include(p => p.Estado).FirstOrDefault(p => p.ID_Producto == id);
+    public ProductoEntity? GetById(int id) => context.Productos.Include(p => p.Categoria).Include(p => p.Estado).AsNoTracking().FirstOrDefault(p => p.ID_Producto == id);
 
     public void Insert(ProductoEntity entity)
     {
@@ -24,7 +24,14 @@ public class ProductRepository
     public void Update(ProductoEntity entity)
     {
         Validate(entity);
-        context.Productos.Update(entity);
+        var existing = context.Productos.Find(entity.ID_Producto)
+            ?? throw new KeyNotFoundException("Producto no encontrado.");
+
+        existing.ID_Categoria = entity.ID_Categoria;
+        existing.Producto = entity.Producto;
+        existing.Descripcion = entity.Descripcion;
+        existing.Stock_Minimo = entity.Stock_Minimo;
+        existing.ID_Estado = entity.ID_Estado;
         context.SaveChanges();
     }
 
@@ -41,6 +48,5 @@ public class ProductRepository
     private static void Validate(ProductoEntity entity)
     {
         if (string.IsNullOrWhiteSpace(entity.Producto)) throw new ArgumentException("El producto es obligatorio.");
-        if (entity.Precio_Venta_Unidad < 0) throw new ArgumentOutOfRangeException(nameof(entity.Precio_Venta_Unidad));
     }
 }

@@ -11,7 +11,7 @@ public class CustomerRepository
     public CustomerRepository(AppDBContext context) => this.context = context;
 
     public List<Customer> GetAll() => context.Clientes.Include(c => c.Estado).AsNoTracking().OrderBy(c => c.Nombre).ThenBy(c => c.Apellido).ToList();
-    public Customer? GetById(int id) => context.Clientes.Include(c => c.Estado).FirstOrDefault(c => c.ID_Cliente == id);
+    public Customer? GetById(int id) => context.Clientes.Include(c => c.Estado).AsNoTracking().FirstOrDefault(c => c.ID_Cliente == id);
 
     public void Insert(Customer entity)
     {
@@ -24,7 +24,15 @@ public class CustomerRepository
     public void Update(Customer entity)
     {
         Validate(entity);
-        context.Clientes.Update(entity);
+        var existing = context.Clientes.Find(entity.ID_Cliente)
+            ?? throw new KeyNotFoundException("Cliente no encontrado.");
+
+        existing.Nombre = entity.Nombre;
+        existing.Apellido = entity.Apellido;
+        existing.Telefono = entity.Telefono;
+        existing.Documento = entity.Documento;
+        existing.Direccion = entity.Direccion;
+        existing.ID_Estado = entity.ID_Estado;
         context.SaveChanges();
     }
 

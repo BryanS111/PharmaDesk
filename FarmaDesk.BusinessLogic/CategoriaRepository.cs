@@ -12,7 +12,7 @@ public class CategoriaRepository
 
     public List<CategoriaEntity> GetAll() => context.Categorias.Include(c => c.Estado).AsNoTracking().OrderBy(c => c.Categoria).ToList();
 
-    public CategoriaEntity? GetById(int id) => context.Categorias.Include(c => c.Estado).FirstOrDefault(c => c.ID_Categoria == id);
+    public CategoriaEntity? GetById(int id) => context.Categorias.Include(c => c.Estado).AsNoTracking().FirstOrDefault(c => c.ID_Categoria == id);
 
     public void Insert(CategoriaEntity entity)
     {
@@ -25,7 +25,12 @@ public class CategoriaRepository
     public void Update(CategoriaEntity entity)
     {
         Validate(entity);
-        context.Categorias.Update(entity);
+        var existing = context.Categorias.Find(entity.ID_Categoria)
+            ?? throw new KeyNotFoundException("Categoría no encontrada.");
+
+        existing.Categoria = entity.Categoria;
+        existing.Descripcion = entity.Descripcion;
+        existing.ID_Estado = entity.ID_Estado;
         context.SaveChanges();
     }
 

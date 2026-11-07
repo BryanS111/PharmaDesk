@@ -36,10 +36,6 @@
             cmbCategoria = new ComboBox();
             label4 = new Label();
             numStockMinimo = new NumericUpDown();
-            label5 = new Label();
-            label6 = new Label();
-            txtPrecioCompra = new TextBox();
-            txtPrecioVenta = new TextBox();
             label7 = new Label();
             cmbEstado = new ComboBox();
             txtBuscar = new TextBox();
@@ -52,7 +48,6 @@
             ID = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             Categoria = new DataGridViewTextBoxColumn();
-            PVenta = new DataGridViewTextBoxColumn();
             Stock = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)numStockMinimo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
@@ -134,41 +129,6 @@
             numStockMinimo.Size = new Size(190, 23);
             numStockMinimo.TabIndex = 7;
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(33, 220);
-            label5.Margin = new Padding(2, 0, 2, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(103, 15);
-            label5.TabIndex = 8;
-            label5.Text = "PRECIO COMPRA:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(246, 220);
-            label6.Margin = new Padding(2, 0, 2, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(89, 15);
-            label6.TabIndex = 9;
-            label6.Text = "PRECIO VENTA:";
-            // 
-            // txtPrecioCompra
-            // 
-            txtPrecioCompra.Location = new Point(33, 242);
-            txtPrecioCompra.Margin = new Padding(2);
-            txtPrecioCompra.Name = "txtPrecioCompra";
-            txtPrecioCompra.Size = new Size(192, 23);
-            txtPrecioCompra.TabIndex = 10;
-            // 
-            // txtPrecioVenta
-            // 
-            txtPrecioVenta.Location = new Point(246, 242);
-            txtPrecioVenta.Margin = new Padding(2);
-            txtPrecioVenta.Name = "txtPrecioVenta";
-            txtPrecioVenta.Size = new Size(192, 23);
-            txtPrecioVenta.TabIndex = 11;
             // 
             // label7
             // 
@@ -250,7 +210,7 @@
             dgvProductos.BackgroundColor = Color.White;
             dgvProductos.BorderStyle = BorderStyle.None;
             dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { ID, Nombre, Categoria, PVenta, Stock });
+            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { ID, Nombre, Categoria, Stock });
             dgvProductos.Location = new Point(33, 287);
             dgvProductos.Name = "dgvProductos";
             dgvProductos.Size = new Size(787, 249);
@@ -273,11 +233,6 @@
             Categoria.Name = "Categoria";
             Categoria.Width = 200;
             // 
-            // PVenta
-            // 
-            PVenta.HeaderText = "Precio Venta";
-            PVenta.Name = "PVenta";
-            // 
             // Stock
             // 
             Stock.HeaderText = "Stock";
@@ -298,10 +253,6 @@
             Controls.Add(txtBuscar);
             Controls.Add(cmbEstado);
             Controls.Add(label7);
-            Controls.Add(txtPrecioVenta);
-            Controls.Add(txtPrecioCompra);
-            Controls.Add(label6);
-            Controls.Add(label5);
             Controls.Add(numStockMinimo);
             Controls.Add(label4);
             Controls.Add(cmbCategoria);
@@ -330,10 +281,6 @@
         private ComboBox cmbCategoria;
         private Label label4;
         private NumericUpDown numStockMinimo;
-        private Label label5;
-        private Label label6;
-        private TextBox txtPrecioCompra;
-        private TextBox txtPrecioVenta;
         private Label label7;
         private ComboBox cmbEstado;
         private TextBox txtBuscar;
@@ -346,7 +293,6 @@
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Categoria;
-        private DataGridViewTextBoxColumn PVenta;
         private DataGridViewTextBoxColumn Stock;
     }
 }

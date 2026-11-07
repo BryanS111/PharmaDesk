@@ -20,12 +20,6 @@ namespace FarmaDesk.Entity
         public string? Descripcion { get; set; }
 
         [Required]
-        public decimal Precio_Compra_Unidad { get; set; }
-
-        [Required]
-        public decimal Precio_Venta_Unidad { get; set; }
-
-        [Required]
         public int Stock_Minimo { get; set; }
 
         [Required]

@@ -1,5 +1,6 @@
 using FarmaDesk.Desktop.Forms;
 using FarmaDesk.Desktop.Forms.Productos;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace FarmaDesk.Desktop;
 
@@ -7,10 +8,12 @@ public class MainForm : Form
 {
     private readonly Panel contentPanel = new();
     private readonly Panel dashboardPanel = new();
+    private readonly IServiceProvider services;
     private Form? activeForm;
 
-    public MainForm()
+    public MainForm(IServiceProvider services)
     {
+        this.services = services;
         InitializeLayout();
         ShowDashboard();
     }
@@ -25,9 +28,9 @@ public class MainForm : Form
         var menu = new MenuStrip();
 
         var inventory = new ToolStripMenuItem("Inventario");
-        inventory.DropDownItems.Add("Productos", null, (_, _) => OpenForm(new ProductForm()));
-        inventory.DropDownItems.Add("Categorías", null, (_, _) => OpenForm(new CategoryForm()));
-        inventory.DropDownItems.Add("Presentaciones", null, (_, _) => OpenForm(new PresentationForm()));
+        inventory.DropDownItems.Add("Productos", null, (_, _) => OpenForm(services.GetRequiredService<ProductForm>()));
+        inventory.DropDownItems.Add("Categorías", null, (_, _) => OpenForm(services.GetRequiredService<CategoryForm>()));
+        inventory.DropDownItems.Add("Presentaciones", null, (_, _) => OpenForm(services.GetRequiredService<PresentationForm>()));
 
         var sales = new ToolStripMenuItem("Ventas");
         sales.DropDownItems.Add("Clientes", null, (_, _) => OpenForm(new CustomerForm()));
@@ -87,11 +90,11 @@ public class MainForm : Form
 
         var shortcuts = new GroupBox { Text = "Accesos rápidos", Location = new Point(540, 80), Size = new Size(300, 180) };
         var productsButton = new Button { Text = "Productos", AutoSize = true, Location = new Point(20, 30) };
-        productsButton.Click += (_, _) => OpenForm(new ProductForm());
+        productsButton.Click += (_, _) => OpenForm(services.GetRequiredService<ProductForm>());
         var categoriesButton = new Button { Text = "Categorías", AutoSize = true, Location = new Point(20, 70) };
-        categoriesButton.Click += (_, _) => OpenForm(new CategoryForm());
+        categoriesButton.Click += (_, _) => OpenForm(services.GetRequiredService<CategoryForm>());
         var presentationsButton = new Button { Text = "Presentaciones", AutoSize = true, Location = new Point(20, 110) };
-        presentationsButton.Click += (_, _) => OpenForm(new PresentationForm());
+        presentationsButton.Click += (_, _) => OpenForm(services.GetRequiredService<PresentationForm>());
         shortcuts.Controls.AddRange([productsButton, categoriesButton, presentationsButton]);
 
         dashboardPanel.Controls.AddRange([title, description, summary, alerts, shortcuts]);

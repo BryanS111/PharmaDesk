@@ -413,14 +413,6 @@ namespace FarmaDesk.DataAccess.Migrations
                     b.Property<int>("ID_Estado")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Precio_Compra_Unidad")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("Precio_Venta_Unidad")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<string>("Producto")
                         .IsRequired()
                         .HasMaxLength(150)

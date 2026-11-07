@@ -2,9 +2,12 @@ namespace FarmaDesk.Desktop
 {
     public partial class login : Form
     {
-        public login()
+        private readonly IServiceProvider services;
+
+        public login(IServiceProvider services)
         {
             InitializeComponent();
+            this.services = services;
         }
         private void login_Load(object sender, EventArgs e)
         {
@@ -19,7 +22,7 @@ namespace FarmaDesk.Desktop
             }
 
             Hide();
-            using var mainForm = new MainForm();
+            using var mainForm = (MainForm)services.GetService(typeof(MainForm))!;
             mainForm.ShowDialog();
             Close();
         }

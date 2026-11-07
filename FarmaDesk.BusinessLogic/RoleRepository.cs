@@ -11,7 +11,7 @@ public class RoleRepository
     public RoleRepository(AppDBContext context) => this.context = context;
 
     public List<Role> GetAll() => context.Roles.Include(r => r.Estado).AsNoTracking().OrderBy(r => r.Rol).ToList();
-    public Role? GetById(int id) => context.Roles.Include(r => r.Estado).FirstOrDefault(r => r.ID_Rol == id);
+    public Role? GetById(int id) => context.Roles.Include(r => r.Estado).AsNoTracking().FirstOrDefault(r => r.ID_Rol == id);
 
     public void Insert(Role entity)
     {
@@ -24,7 +24,12 @@ public class RoleRepository
     public void Update(Role entity)
     {
         Validate(entity);
-        context.Roles.Update(entity);
+        var existing = context.Roles.Find(entity.ID_Rol)
+            ?? throw new KeyNotFoundException("Rol no encontrado.");
+
+        existing.Rol = entity.Rol;
+        existing.Descripcion = entity.Descripcion;
+        existing.ID_Estado = entity.ID_Estado;
         context.SaveChanges();
     }
 
