@@ -1,5 +1,6 @@
 ﻿using FarmaDesk.Desktop.Forms;
 using FarmaDesk.Desktop.Forms.Productos;
+using FarmaDesk.Entity;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace FarmaDesk.Desktop;
@@ -117,12 +118,25 @@ public class MainForm : Form
 
     private void InitializeComponent()
     {
+        SuspendLayout();
+        // 
+        // MainForm
+        // 
+        ClientSize = new Size(284, 261);
+        Name = "MainForm";
+        Load += MainForm_Load;
+        ResumeLayout(false);
 
     }
 
     private static void ShowComingSoon(string message)
     {
         MessageBox.Show(message, "MÃ³dulo pendiente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    }
+
+    private void MainForm_Load(object sender, EventArgs e)
+    {
+
     }
 }
 

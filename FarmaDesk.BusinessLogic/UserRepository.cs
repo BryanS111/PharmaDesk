@@ -14,10 +14,16 @@ public class UserRepository
 
     public User? GetById(int id) => context.Usuarios.Include(u => u.Rol).Include(u => u.Estado).FirstOrDefault(u => u.ID_Usuario == id);
 
-    public User? Authenticate(string username, string password) =>
-        context.Usuarios.Include(u => u.Rol).Include(u => u.Estado)
+    public User? Authenticate(string usuario, string clave)
+    {
+        return context.Usuarios
+            .Include(u => u.Estado)
             .AsNoTracking()
-            .FirstOrDefault(u => u.Usuario == username && u.Clave == password && u.ID_Estado == EstadoIds.Activo);
+            .FirstOrDefault(u =>
+                u.Usuario == usuario &&
+                u.Clave == clave &&
+                u.ID_Estado == EstadoIds.Activo);
+    }
 
     public void Insert(User entity)
     {

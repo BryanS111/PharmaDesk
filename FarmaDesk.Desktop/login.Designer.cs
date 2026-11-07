@@ -1,4 +1,6 @@
-﻿namespace FarmaDesk.Desktop
+﻿using FarmaDesk.BusinessLogic;
+
+namespace FarmaDesk.Desktop
 {
     partial class login
     {
@@ -18,6 +20,14 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
+        }
+        private readonly UserRepository userRepository;
+
+        public login(IServiceProvider services, UserRepository userRepository)
+        {
+            InitializeComponent();
+            this.services = services;
+            this.userRepository = userRepository;
         }
 
         #region Windows Form Designer generated code

@@ -19,6 +19,12 @@
             }
             base.Dispose(disposing);
         }
+        private readonly int usuarioActualId;
+
+        public CashRegisterForms(int usuarioActualId)
+        {
+            InitializeComponent();
+        }
 
         #region Windows Form Designer generated code
 
