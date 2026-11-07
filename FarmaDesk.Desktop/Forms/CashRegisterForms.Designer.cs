@@ -19,12 +19,6 @@
             }
             base.Dispose(disposing);
         }
-        private readonly int usuarioActualId;
-
-        public CashRegisterForms(int usuarioActualId)
-        {
-            InitializeComponent();
-        }
 
         #region Windows Form Designer generated code
 
@@ -86,7 +80,7 @@
             label1.Location = new Point(271, 24);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(107, 15);
+            label1.Size = new Size(106, 15);
             label1.TabIndex = 8;
             label1.Text = "FECHA APERTURA:";
             // 
@@ -115,7 +109,7 @@
             label3.Location = new Point(36, 77);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(97, 15);
+            label3.Size = new Size(96, 15);
             label3.TabIndex = 10;
             label3.Text = "MONTO INICIAL:";
             // 
@@ -135,7 +129,7 @@
             label7.Location = new Point(271, 77);
             label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
-            label7.Size = new Size(53, 15);
+            label7.Size = new Size(52, 15);
             label7.TabIndex = 14;
             label7.Text = "ESTADO:";
             // 
@@ -174,7 +168,7 @@
             label5.Location = new Point(318, 135);
             label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(89, 15);
+            label5.Size = new Size(88, 15);
             label5.TabIndex = 18;
             label5.Text = "MONTO FINAL:";
             // 
@@ -267,6 +261,7 @@
             Controls.Add(label2);
             Name = "CashRegisterForms";
             Text = "CashRegisterForms";
+            Load += CashRegisterForms_Load;
             ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
             ResumeLayout(false);
             PerformLayout();

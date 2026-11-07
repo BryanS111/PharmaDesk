@@ -59,12 +59,12 @@ public partial class ProductForm : Form
         var products = productRepository.GetAll()
             .Where(product => string.IsNullOrWhiteSpace(search) || product.Producto.Contains(search, StringComparison.OrdinalIgnoreCase))
             .Select(product => new
-        {
-            product.ID_Producto,
-            product.Producto,
-            Categoria = product.Categoria?.Categoria ?? string.Empty,
-            Stock = product.Stock_Minimo
-        }).ToList();
+            {
+                product.ID_Producto,
+                product.Producto,
+                Categoria = product.Categoria?.Categoria ?? string.Empty,
+                Stock = product.Stock_Minimo
+            }).ToList();
 
         ID.DataPropertyName = nameof(ProductoEntity.ID_Producto);
         Nombre.DataPropertyName = nameof(ProductoEntity.Producto);
@@ -168,5 +168,10 @@ public partial class ProductForm : Form
         dgvProductos.ClearSelection();
         btnEliminar.Enabled = false;
         txtNombre.Focus();
+    }
+
+    private void ProductForm_Load_1(object sender, EventArgs e)
+    {
+
     }
 }

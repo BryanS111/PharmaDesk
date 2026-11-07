@@ -64,6 +64,11 @@ public partial class CashRegisterForms : Form
     private static bool TryAmount(string value, out decimal amount) => decimal.TryParse(value, NumberStyles.Number, CultureInfo.CurrentCulture, out amount) || decimal.TryParse(value, NumberStyles.Number, CultureInfo.InvariantCulture, out amount);
     private sealed record CashRow(int ID_Caja, string Usuario, DateTime Fecha_Apertura, DateTime? Fecha_Cierre, decimal Monto_Inicial, decimal? Monto_Final, string Estado, int ID_Usuario);
     private static void ShowError(Exception ex) => MessageBox.Show(ex.GetBaseException().Message, "Caja", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+    private void CashRegisterForms_Load(object sender, EventArgs e)
+    {
+
+    }
 }
 
 

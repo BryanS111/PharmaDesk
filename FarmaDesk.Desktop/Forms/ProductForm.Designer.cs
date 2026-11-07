@@ -97,7 +97,7 @@
             label3.Location = new Point(33, 172);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(73, 15);
+            label3.Size = new Size(72, 15);
             label3.TabIndex = 4;
             label3.Text = "CATEGORIA:";
             label3.Click += label3_Click;
@@ -117,7 +117,7 @@
             label4.Location = new Point(246, 172);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(171, 15);
+            label4.Size = new Size(170, 15);
             label4.TabIndex = 6;
             label4.Text = "HUMBRAL DE STOCK MINIMO:";
             // 
@@ -129,14 +129,13 @@
             numStockMinimo.Size = new Size(190, 23);
             numStockMinimo.TabIndex = 7;
             // 
-            // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Location = new Point(468, 26);
             label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
-            label7.Size = new Size(53, 15);
+            label7.Size = new Size(52, 15);
             label7.TabIndex = 12;
             label7.Text = "ESTADO:";
             // 
@@ -239,7 +238,7 @@
             Stock.Name = "Stock";
             Stock.Width = 90;
             // 
-            // ProductosForm
+            // ProductForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -265,6 +264,7 @@
             Name = "ProductForm";
             Text = "PRODUCTOS - CRUD";
             WindowState = FormWindowState.Maximized;
+            Load += ProductForm_Load_1;
             ((System.ComponentModel.ISupportInitialize)numStockMinimo).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
             ResumeLayout(false);
