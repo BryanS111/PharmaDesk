@@ -1,4 +1,6 @@
-﻿namespace FarmaDesk.Desktop
+﻿using FarmaDesk.BusinessLogic;
+using Microsoft.Extensions.DependencyInjection;
+namespace FarmaDesk.Desktop
 {
     public partial class login : Form
     {

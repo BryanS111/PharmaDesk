@@ -21,14 +21,7 @@ namespace FarmaDesk.Desktop
             }
             base.Dispose(disposing);
         }
-        private readonly UserRepository userRepository;
-
-        public login(IServiceProvider services, UserRepository userRepository)
-        {
-            InitializeComponent();
-            this.services = services;
-            this.userRepository = userRepository;
-        }
+       
 
         #region Windows Form Designer generated code
 
