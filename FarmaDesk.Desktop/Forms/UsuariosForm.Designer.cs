@@ -48,6 +48,7 @@
             btnLimpiar = new Button();
             btnGuardar = new Button();
             btnNuevo = new Button();
+            btnEliminar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             SuspendLayout();
             // 
@@ -223,11 +224,23 @@
             btnNuevo.UseVisualStyleBackColor = true;
             btnNuevo.Click += btnNuevo_Click;
             // 
+            // btnEliminar
+            // 
+            btnEliminar.ForeColor = Color.Black;
+            btnEliminar.Location = new Point(742, 14);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(75, 23);
+            btnEliminar.TabIndex = 30;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
             // UsuariosForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(931, 528);
+            Controls.Add(btnEliminar);
             Controls.Add(dgvUsuarios);
             Controls.Add(btnLimpiar);
             Controls.Add(btnGuardar);
@@ -244,6 +257,7 @@
             Controls.Add(label1);
             Name = "UsuariosForm";
             Text = "UsuariosForm";
+            Load += UsuariosForm_Load_1;
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -271,5 +285,6 @@
         private Button btnLimpiar;
         private Button btnGuardar;
         private Button btnNuevo;
+        private Button btnEliminar;
     }
 }

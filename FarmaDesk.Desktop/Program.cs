@@ -34,6 +34,7 @@ namespace FarmaDesk.Desktop
             services.AddScoped<SupplierRepository>();
             services.AddScoped<CustomerRepository>();
             services.AddScoped<RoleRepository>();
+            services.AddScoped<UserRepository>();
 
             using var serviceProvider = services.BuildServiceProvider();
             Application.Run(new login());
